@@ -1,0 +1,61 @@
+@import '../config/settings';
+
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100px;
+    margin: 0 $gutter-size;
+    padding-right: 7rem;
+
+    &__logo {
+        flex: 0 1 15rem;
+        align-self: flex-start;
+        display: block;
+        margin-top: 1rem;
+        margin-right: auto;
+    }
+
+    &__logo-image {
+        width: 100%;
+    }
+
+    &__link {
+        @include text-shadow-subtle;
+        display: block;
+        padding: .5rem 0;
+        margin: 0 2rem;
+        color: $font-color-light;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &--current-page {
+            border-bottom: 3px solid $color-white;
+            color: $font-color-medium;
+        }
+
+        &:hover {
+            color: $font-color-medium;
+        }
+    }
+}
+
+.footer-navigation {
+    margin: 0 12rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-top: 1px solid $color-blue--dark;
+
+    &__link {
+        margin: 0 1rem;
+        color: $font-color-medium;
+        font-weight: $font-weight-regular;
+        text-decoration: none;
+
+        &:hover {
+            color: $font-color-light;
+        }
+    }
+}

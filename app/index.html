@@ -11,13 +11,13 @@
     </head>
     <body class="site">
 
-        <header class="site__header">
+        <header class="site__header site__header--home">
             <!-- Navigation -->
             <nav class="navigation">
 
                 <!-- Logo -->
                 <a href="#" class="navigation__logo">
-                    <img src="http://via.placeholder.com/225x100" alt="Mind Over Data logo" class="navigation__logo-image">
+                    <img src="./images/logo-mod-white.png" alt="Mind Over Data logo" class="navigation__logo-image">
                 </a>
 
                 <!-- Navigation Links -->
@@ -30,7 +30,7 @@
 
             <!-- Hero -->
             <section class="hero">
-                <h1 class="hero__heading">Your Business Problems Solved</h1>
+                <h1 class="hero__heading">Your Business Problems <span class="hero__heading-emphasis">Solved</span></h1>
                 <p class="hero__text">We work with you to develop custom software and technology tailored to your specific needs. Contact us and lets get started today!</p>
                 <div class="hero__action-buttons">
                     <button class="hero__button">Learn More</button>
@@ -44,15 +44,15 @@
             <!-- Clients -->
             <section class="clients">
                 <!-- DoubleTree -->
-                <img src="http://via.placeholder.com/385x180" alt="DoubleTree by Hilton" class="clients__logo">
+                <div class="clients__logo clients__logo--double-tree"><img class="clients__logo-image" src="./images/logo-double-tree.png" alt="DoubleTree by Hilton" class="clients__logo"></div>
                 <!-- International Paper -->
-                <img src="http://via.placeholder.com/385x180" alt="International Paper" class="clients__logo">
+                <div class="clients__logo clients__logo--international-paper"><img class="clients__logo-image" src="./images/logo-international-paper.png" alt="International Paper" class="clients__logo"></div>
                 <!-- FedEx -->
-                <img src="http://via.placeholder.com/385x180" alt="FedEx" class="clients__logo">
+                <div class="clients__logo clients__logo--fedex"><img class="clients__logo-image" src="./images/logo-fedex.png" alt="FedEx" class="clients__logo"></div>
                 <!-- ACORN -->
-                <img src="http://via.placeholder.com/385x180" alt="ACORN" class="clients__logo">
+                <div class="clients__logo clients__logo--acorn"><img class="clients__logo-image" src="./images/logo-acorn.png" alt="ACORN" class="clients__logo"></div>
                 <!-- Kent State -->
-                <img src="http://via.placeholder.com/385x180" alt="Kent State University" class="clients__logo">
+                <div class="clients__logo clients__logo--kent-state-university"><img class="clients__logo-image" src="./images/logo-kent-state-university.png" alt="Kent State University" class="clients__logo"></div>
             </section>
 
             <!-- Video section -->
@@ -60,7 +60,7 @@
                 <div class="smart-solutions-video__text-section">
                     <h2 class="smart-solutions-video__heading">Smart people. Working on smart solutions.</h2>
                     <p class="smart-solutions-video__text">Technology and custom software development can solve problems and do a lot of good, but not without a plan. Our proven process helps us understand your challenges thoroughly and ensures the technology solution we present actually solves your most pressing business problems.</p>
-                    <p class="smart-solutions-video__text">Technology and custom software by itself can’t solve your problems.</p>
+                    <p class="smart-solutions-video__text smart-solutions-video__text---emphasis">Technology and custom software by itself can’t solve your problems.</p>
                     <p class="smart-solutions-video__text">But technology and custom software with a well-thought out strategy can. We leverage technology and custom software to create smart solutions that solve your business problems.</p>
                 </div>
                 <div class="smart-solutions-video__video-section">
@@ -71,26 +71,26 @@
             <!-- Services -->
             <section class="services">
                 <h2 class="services__heading">Smart services. For businesses that want results.</h2>
-                <p class="services__text">Are you ready to stop wasting time (and money) with off-the-shelf technology that keeps missing the mark? We couple your experience with our expertise to develop common-sense tailored solutions that get the job done. </p>
+                <p class="services__text">Are you ready to stop wasting time (and money) with off-the-shelf technology that keeps missing the mark? <br>We couple your experience with our expertise to develop common-sense tailored solutions that get the job done. </p>
                 
                 <div class="services__card-section">
                     <div class="service-card">
-                        <img src="http://via.placeholder.com/75x75" alt="" class="service-card__icon">
+                        <div class="service-card__icon service-card__icon--screen"></div>
                         <h3 class="service-card__heading">drive results with technology</h3>
-                        <p class="service-card__text">Custom software tailoredto your needs and organization</p>
+                        <p class="service-card__text">Custom software tailored to your needs and organization</p>
                     </div>
                     <div class="service-card">
-                        <img src="http://via.placeholder.com/75x75" alt="" class="service-card__icon">
+                        <div class="service-card__icon service-card__icon--beaker"></div>
                         <h3 class="service-card__heading">engage your customers</h3>
                         <p class="service-card__text">Interactive technology and kiosks</p>
                     </div>
                     <div class="service-card">
-                        <img src="http://via.placeholder.com/75x75" alt="" class="service-card__icon">
+                        <div class="service-card__icon service-card__icon--chat"></div>
                         <h3 class="service-card__heading">get help when you need it</h3>
                         <p class="service-card__text">Long-term support you can count on</p>
                     </div>
                     <div class="service-card">
-                        <img src="http://via.placeholder.com/75x75" alt="" class="service-card__icon">
+                        <div class="service-card__icon service-card__icon--clock"></div>
                         <h3 class="service-card__heading">Save time and money</h3>
                         <p class="service-card__text">Automated solutions for labor-intensive processes</p>
                     </div>
@@ -101,37 +101,69 @@
             <section class="featured-work">
                 <h2 class="featured-work__heading">Featured Work</h2>
                 <div class="featured-work__card-section">
-                    <div class="featured-work-card">
-                        <h3 class="featured-work-card__heading">DoubleTree Hotels</h3>
-                        <p class="featured-work-card__text"></p>
+                    <div class="featured-work-card featured-work-card--doubletree-hotels">
+                        <div class="featured-work-card__container">
+                            <div class="featured-work-card__overlay">
+                                <h3 class="featured-work-card__heading">DoubleTree Hotels</h3>
+                                <p class="featured-work-card__text">Lorem Ipsum Dolor</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="featured-work-card">
-                        <h3 class="featured-work-card__heading">International Paper</h3>
-                        <p class="featured-work-card__text"></p>
+                    <div class="featured-work-card featured-work-card--international-paper">
+                        <div class="featured-work-card__container">
+                            <div class="featured-work-card__overlay">
+                                <h3 class="featured-work-card__heading">International Paper</h3>
+                                <p class="featured-work-card__text">Lorem Ipsum Dolor</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="featured-work-card featured-work-card--active">
-                        <h3 class="featured-work-card__heading">Woody Guthrie Museum</h3>
-                        <p class="featured-work-card__text">Interactive Kiosk</p>
+                    <div class="featured-work-card featured-work-card--woody-guthrie-museum featured-work-card--active">
+                        <div class="featured-work-card__container">
+                            <div class="featured-work-card__overlay">
+                                <h3 class="featured-work-card__heading">Woody Guthrie Museum</h3>
+                                <p class="featured-work-card__text">Interactive Kiosk</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="featured-work-card">
-                        <h3 class="featured-work-card__heading">Kent State University</h3>
-                        <p class="featured-work-card__text"></p>
+                    <div class="featured-work-card featured-work-card--kent-state-university">
+                        <div class="featured-work-card__container">
+                            <div class="featured-work-card__overlay">
+                                <h3 class="featured-work-card__heading">Kent State University</h3>
+                                <p class="featured-work-card__text">Lorem Ipsum Dolor</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="featured-work-card">
-                        <h3 class="featured-work-card__heading">FedEx Air and Ground</h3>
-                        <p class="featured-work-card__text"></p>
+                    <div class="featured-work-card featured-work-card--fedex">
+                        <div class="featured-work-card__container">
+                            <div class="featured-work-card__overlay">
+                                <h3 class="featured-work-card__heading">FedEx Air and Ground</h3>
+                                <p class="featured-work-card__text">Lorem Ipsum Dolor</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="featured-work-card">
-                        <h3 class="featured-work-card__heading">Smithsonian Museums</h3>
-                        <p class="featured-work-card__text"></p>
+                    <div class="featured-work-card featured-work-card--smithsonian-museums">
+                        <div class="featured-work-card__container">
+                            <div class="featured-work-card__overlay">
+                                <h3 class="featured-work-card__heading">Smithsonian Museums</h3>
+                                <p class="featured-work-card__text">Lorem Ipsum Dolor</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="featured-work-card">
-                        <h3 class="featured-work-card__heading">Baker Donelson & Associates</h3>
-                        <p class="featured-work-card__text"></p>
+                    <div class="featured-work-card featured-work-card--baker-donelson-and-associates">
+                        <div class="featured-work-card__container">
+                            <div class="featured-work-card__overlay">
+                                <h3 class="featured-work-card__heading">Baker Donelson & Associates</h3>
+                                <p class="featured-work-card__text">Lorem Ipsum Dolor</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="featured-work-card">
-                        <h3 class="featured-work-card__heading">Grammy Museum</h3>
-                        <p class="featured-work-card__text"></p>
+                    <div class="featured-work-card featured-work-card--grammy-museum">
+                        <div class="featured-work-card__container">
+                            <div class="featured-work-card__overlay">
+                                <h3 class="featured-work-card__heading">Grammy Museum</h3>
+                                <p class="featured-work-card__text">Lorem Ipsum Dolor</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -140,14 +172,14 @@
             <section class="testimonials">
                 <div class="testimonials__testimonials-section">
                     <div class="testimonial">
-                        <img src="http://via.placeholder.com/160x45" alt="Treehouse" class="testimonial__logo">
+                        <img src="./images/testimonials-treehouse.png" alt="Treehouse" class="testimonial__logo">
                         <p class="testimonial__quote">“Working with Mind Over Data was delightful! Their methodology, knowledge, and expertise made the entire process flow without disruption.”</p>
                         <p class="testimonial__client">Johnathan Doe, CEO, Treehouse Training</p>
                     </div>
                 </div>
                 <div class="testimonials__controls">
-                    <img src="http://via.placeholder.com/20x25" alt="Previous" class="testimonials__control">
-                    <img src="http://via.placeholder.com/20x25" alt="Next" class="testimonials__control">
+                    <span class="testimonials__control testimonials__control--prev"></span>
+                    <span class="testimonials__control testimonials__control--next"></span>
                 </div>
             </section>
 
@@ -178,7 +210,7 @@
                     </div>
                     <div class="expectation">
                         <h3 class="expectation__heading">Support</h3>
-                        <p class="expectation__text"><span class="expectation__intro-text">We stick with you></span> and we have stuck around in business for over two decades so you won’t be left high and dry if your technology fails to cooperate.</p>
+                        <p class="expectation__text"><span class="expectation__intro-text">We stick with you</span> and we have stuck around in business for over two decades so you won’t be left high and dry if your technology fails to cooperate.</p>
                     </div>
                 </div>
             </section>

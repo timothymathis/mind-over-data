@@ -1,0 +1,22 @@
+@import '../config/settings';
+
+@mixin button {
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: $color-yellow--dark;
+    border-color: transparent;
+    color: $font-color-light;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-align: center;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin button-dark {
+    @include button;
+    background-color: $color-blue--extra-dark;
+}

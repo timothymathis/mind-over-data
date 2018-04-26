@@ -1,0 +1,55 @@
+@import '../config/settings';
+@import '../components/button';
+
+.site {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: $font-weight-regular;
+    font-size: $font-size-base;
+
+    &__header {
+        background-color: #131b27;
+
+        &--home {
+            background-image: url('../images/bg-header-home.jpg');            
+            background-position: top right;
+        }
+    }
+
+    &__footer {
+        padding: 2rem 0 4rem 0;
+        background-color: $color-blue--extra-dark;
+    }
+}
+
+.hero {
+    @include text-shadow-subtle;
+    width: 50%;
+    margin: 0 $gutter-size 0 $gutter-size;
+    padding: 12rem 0 10rem 0;
+    color: $font-color-light;
+    
+
+    &__heading {
+        font-size: $font-size-heading-1;
+        font-weight: $font-weight-light;
+        
+    }
+
+    &__heading-emphasis {
+        font-weight: $font-weight-semi-bold; 
+    }
+
+    &__action-buttons {
+        margin-top: 2rem;
+    }
+
+    &__button {
+        @include button;
+
+        min-width: 11rem;
+
+        & + * {
+            margin-left: 2rem;
+        }
+    }
+}

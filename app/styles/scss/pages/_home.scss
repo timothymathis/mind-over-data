@@ -1,0 +1,377 @@
+@import '../config/settings';
+@import '../components/button';
+
+.clients {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem $gutter-size/2;
+    background-color: $color-gray--light;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+
+        & + * {
+            margin-left: 1rem;
+        }
+
+        &--double-tree {
+            width: 10rem;
+        }
+
+        &--international-paper {
+            width: 14rem;
+        }
+
+        &--fedex {
+            width: 9rem;
+        }
+
+        &--acorn {
+            width: 9rem;
+        }
+
+        &--kent-state-university {
+            width: 7rem;
+        }
+    }
+
+    &__logo-image {
+        width: 100%;
+    }
+}
+
+.smart-solutions-video {
+    display: flex;
+
+    &__text-section {
+        width: 40%;
+        padding: 5rem $gutter-size/2;
+    }
+
+    &__video-section {
+        flex: 1 1 auto;
+    }
+
+    &__heading {
+        color: $font-color-dark;
+        font-size: $font-size-heading-3;
+    }
+
+    &__text {
+        margin-top: 2rem;
+        color: $font-color-normal;
+
+        & + * {
+            margin-top: 1.5rem;
+        }
+
+        &--emphasis {
+            font-weight: $font-weight-semi-bold;
+        }
+    }
+
+    &__video {
+        width: 100%;
+    }
+}
+
+.services {
+    padding: 4rem 0 6rem 0;
+    background-color: $color-blue;
+    text-align: center;
+
+    &__heading {
+        color: $font-color-light;
+        font-size: $font-size-heading-3;
+        font-weight: $font-weight-semi-bold;
+    }
+
+    &__text {
+        margin-top: 2rem;
+        padding: 0 10rem;
+        color: $font-color-medium;
+    }
+
+    &__card-section {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        margin-top: 5rem;
+    }
+}
+
+.service-card {
+    $block: &;
+
+    cursor: pointer;
+    width: 15rem;
+    padding-top: 1rem;
+    border-top: 5px solid transparent;    
+
+    &:hover {
+        border-top-color: $color-white;
+
+        #{$block}__icon {
+            background-position-y: 0;
+        }
+
+        #{$block}__heading {
+            color: $font-color-light;
+        }
+
+        #{$block}__text {
+            color: $font-color-light;
+        }
+    }
+
+    &__icon {
+        width: 3rem;
+        height: 3rem;
+        margin: 0 auto;
+        background-position: 0 -100%;
+        background-size: 100% auto;
+
+        &--screen {
+            background-image: url('../images/icon-services-screen.png');
+        }
+
+        &--beaker {
+            background-image: url('../images/icon-services-beaker.png');
+        }
+
+        &--chat {
+            background-image: url('../images/icon-services-chat.png');
+        }
+
+        &--clock {
+            background-image: url('../images/icon-services-clock.png');
+        }
+    }
+
+    &__heading {
+        margin-top: 1rem;
+        text-transform: uppercase;
+        color: $font-color-medium;
+        font-size: $font-size-heading-3;
+        font-weight: $font-weight-light;
+        line-height: 110%;
+    }
+
+    &__text {
+        margin-top: 2rem;
+        color: $font-color-medium;
+        line-height: 110%;
+    }
+}
+
+.featured-work {
+    &__heading {
+        padding: 1rem $gutter-size/2 0 $gutter-size/2;
+        font-size: $font-size-heading-2;
+        text-transform: uppercase;
+    }
+
+    &__card-section {
+        display: flex;
+        flex-flow: row wrap;
+    }
+}
+
+.featured-work-card {
+    $block: &;
+    @include text-shadow-subtle;
+    cursor: pointer;
+    flex: 1 0 25%;
+    height: 18rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    background-color: $color-blue--dark;
+    color: $font-color-light;
+
+    &:hover {
+
+        #{$block}__container {
+            @include transform(scale(1.5));
+        }
+        
+        #{$block}__heading {
+            @include transform(scale((1/1.5)));
+        }
+        
+        #{$block}__text {
+            opacity: 1;
+            @include transform(scale((1/1.5)));
+        }
+    }
+
+    &__container {
+        width: 100%;
+        height: 100%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+
+        &--doubletree-hotels {
+            background-image: url('../images/work-doubletree-hotels.png');
+        }
+
+        &--international-paper {
+            background-image: url('../images/work-international-paper.png');
+        }
+
+        &--woody-guthrie-museum {
+            background-image: url('../images/work-woody-guthrie-museum.png');
+        }
+
+        &--kent-state-university {
+            background-image: url('../images/work-kent-state-university.png');
+        }
+        
+        &--fedex {
+            background-image: url('../images/work-fedex.png');
+            background-position-x: right;
+        }
+        
+        &--smithsonian-museums {
+            background-image: url('../images/work-smithsonian-museums.png');
+        }
+        
+        &--baker-donelson-and-associates {
+            background-image: url('../images/work-baker-donelson-and-associates.png');
+        }
+        
+        &--grammy-museum {
+            background-image: url('../images/work-grammy-museum.png');
+        }
+    }
+
+    &__overlay {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        background-color: rgba(1, 17, 17, .56);
+    }
+
+    &__heading {
+        font-size: $font-size-heading-2;
+        font-weight: $font-weight-bold;
+        text-transform: uppercase;
+    }
+
+    &__text {
+        opacity: 0;
+    }
+}
+
+.testimonials {
+    padding: 5rem 5rem 1rem 5rem;
+    background-color: $color-gray--light;
+
+    &__controls {
+        margin-top: 2rem;
+        text-align: center;        
+    }
+
+    &__control {
+        cursor: pointer;
+
+        &--prev {
+        @include arrow-left;
+        }
+
+        &--next {
+            @include arrow-right;
+        }
+    }
+
+    
+}
+
+.testimonial {
+    text-align: center;
+
+    &__logo {
+        width: 8rem;
+    }
+
+    &__quote {
+        margin-top: 1rem;
+        color: $font-color-dark;
+        font-size: 1.5rem;
+    }
+
+    &__client {
+        margin-top: 1rem;
+        color: $font-color-medium;
+        font-size: .8rem;
+        font-weight: $font-weight-semi-bold;
+    }
+}
+
+.what-to-expect {
+    background: $color-blue--extra-dark url('../images/bg-what-to-expect.jpg') center center no-repeat;
+    background-size:  100% auto;
+    padding: $gutter-size/2;
+
+    &__heading {
+        color: $font-color-light;
+        font-size: $font-size-heading-2;
+        font-weight: $font-weight-light;
+        text-transform: uppercase;
+    }
+
+    &__expectations-section {
+        display: flex;
+        margin: 4rem -1rem 0 -1rem;
+    }
+}
+
+.expectation {
+    width: 20%;
+    margin: 0 1rem;
+    color: $font-color-light;
+
+    &__heading {
+        font-size: $font-size-heading-3;
+    }
+
+    &__text {
+        margin-top: 2rem;
+
+        & + * {
+            margin-top: 1rem;
+        }
+    }
+
+    &__intro-text {
+        text-transform: uppercase;
+    }
+}
+
+.call-to-action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem $gutter-size 2rem 8rem;
+    background-color: $color-yellow--dark;
+
+    &__text {
+        margin-right: 2rem;
+        color: $font-color-dark;
+        font-weight: $font-weight-semi-bold;
+        text-align: right;
+    }
+
+    &__button {
+        flex: 1 0 auto;
+        @include button-dark;
+    }
+}
