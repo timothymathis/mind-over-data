@@ -30,6 +30,9 @@ $font-color-medium: $color-blue--light;
 $font-color-normal: $color-blue;
 $font-color-dark: $color-blue--dark;
 
+// Transition
+$transition-duration-default: .3s;
+
 $gutter-size: 5rem;
 
 // Effects
@@ -44,4 +47,7 @@ $gutter-size: 5rem;
 
 @mixin arrow-left {
     @include triangle($direction: left, $color: $color-blue, $size: .6rem);
+}
+
+@mixin caret-down {
 }
