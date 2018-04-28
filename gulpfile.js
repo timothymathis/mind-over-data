@@ -1,5 +1,5 @@
 //initialize all of our variables
-var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, uglify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, sourceMaps, plumber;
+var app, base, concat, directory, gulp, gutil, hostname, path, refresh, sass, uglify, imagemin, minifyCSS, del, browserSync, autoprefixer, gulpSequence, shell, sourceMaps, plumber, fileinclude;
 
 var autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'];
 
@@ -18,6 +18,7 @@ autoprefixer = require('gulp-autoprefixer');
 gulpSequence = require('gulp-sequence').use(gulp);
 shell       = require('gulp-shell');
 plumber     = require('gulp-plumber');
+fileinclude = require('gulp-file-include')
 
 gulp.task('browserSync', function() {
     browserSync({
@@ -31,6 +32,17 @@ gulp.task('browserSync', function() {
     });
 });
 
+//injecting HTML partials
+gulp.task('fileinclude', function() {
+    gulp.src('app/pages/*.html')
+        //prevent pipe breaking caused by errors from gulp plugins
+        .pipe(plumber())
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
+        .pipe(gulp.dest('app'));
+  });
 
 //compressing images & handle SVG files
 gulp.task('images', function(tmp) {
@@ -138,7 +150,7 @@ gulp.task('styles-deploy', function() {
 });
 
 //basically just keeping an eye on all HTML files
-gulp.task('html', function() {
+gulp.task('html', ['fileinclude'], function() {
     //watch any and all HTML files and refresh when something changes
     return gulp.src('app/*.html')
         .pipe(plumber())
@@ -198,12 +210,12 @@ gulp.task('scaffold', function() {
 //  startup the web server,
 //  start up browserSync
 //  compress all scripts and SCSS files
-gulp.task('default', ['browserSync', 'scripts', 'styles'], function() {
+gulp.task('default', ['browserSync', 'scripts', 'styles', 'fileinclude'], function() {
     //a list of watchers, so it will watch all of the following files waiting for changes
     gulp.watch('app/scripts/src/**', ['scripts']);
     gulp.watch('app/styles/scss/**', ['styles']);
     gulp.watch('app/images/**', ['images']);
-    gulp.watch('app/*.html', ['html']);
+    gulp.watch('app/pages/**/*.html', ['html']);
 });
 
 //this is our deployment task, it will set everything for deployment-ready files

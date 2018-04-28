@@ -1,0 +1,19 @@
+.call-to-action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2rem $gutter-size 2rem 8rem;
+    background-color: $color-yellow--dark;
+
+    &__text {
+        margin-right: 2rem;
+        color: $font-color-dark;
+        font-weight: $font-weight-semi-bold;
+        text-align: right;
+    }
+
+    &__button {
+        flex: 1 0 auto;
+        @include button-dark;
+    }
+}
