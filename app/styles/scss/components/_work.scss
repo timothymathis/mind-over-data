@@ -19,6 +19,8 @@
     $work-down-arrow-transition-bottom: bottom 1s ease;
 
     $block: &;
+
+    @include scroll-reveal;
     @include text-shadow-subtle;
     cursor: pointer;
     flex: 1 0 25%;

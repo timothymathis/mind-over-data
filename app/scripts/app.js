@@ -913,33 +913,55 @@ $(document).ready(function() {
     });
 });
 
-// Parallax
-$('.what-to-expect').parallax({imageSrc: './images/bg-what-to-expect.jpg'});
+$(document).ready(function() {
+    // Parallax
+    //$('.what-to-expect').parallax({imageSrc: './images/bg-what-to-expect.jpg'});
 
-// Fade in on scroll
-sr.reveal('.hero__heading', { duration: revealDuration });
-sr.reveal('.hero__text', { duration: revealDuration });
-sr.reveal('.hero__button', { duration: revealDuration });
-sr.reveal('.clients__logo', { duration: revealDuration });
-sr.reveal('.smart-people-video__heading', { duration: revealDuration });
-sr.reveal('.smart-people-video__text', { duration: revealDuration });
-sr.reveal('.smart-people-video__video', { duration: revealDuration });
-sr.reveal('.services__heading', { duration: revealDuration });
-sr.reveal('.services__text', { duration: revealDuration });
-sr.reveal('.service-card', { duration: revealDuration });
-sr.reveal('.featured-work-card', { 
-    duration: revealDuration, 
-    afterReveal: function (domEl) {
-        domEl.style = '';
-    }
- }, 50);
- sr.reveal('.expectation', { 
-    duration: revealDuration
- }, 200);
+    // Fade in on scroll
+    sr.reveal('.hero__heading', { duration: revealDuration });
+    sr.reveal('.hero__text', { duration: revealDuration });
+    sr.reveal('.hero__button', { duration: revealDuration });
+    sr.reveal('.clients__logo', { duration: revealDuration });
+    sr.reveal('.smart-people-video__heading', { duration: revealDuration });
+    sr.reveal('.smart-people-video__text', { duration: revealDuration });
+    sr.reveal('.smart-people-video__video', { duration: revealDuration });
+    sr.reveal('.services__heading', { duration: revealDuration });
+    sr.reveal('.services__text', { duration: revealDuration });
+    sr.reveal('.service-card', { duration: revealDuration });
+    sr.reveal('.featured-work-card', { 
+        duration: revealDuration, 
+        afterReveal: function (domEl) {
+            // Remove transform property added by ScrollReveal
+            $(domEl).css('transform','');
+        }
+    }, 50);
+    sr.reveal('.expectation', { 
+        duration: revealDuration,
+        beforeReveal: function(domEl) {
+        },
+        afterReveal: function (domEl) {
+            $(window).trigger('resize').trigger('scroll');
+        }
+    }, 200);
+
+    // Services
+    $('.service-card').click(function(){
+
+        // Prepare the container
+        $('.services').addClass('services--detail-open');
+
+        // Unselect the previously selected one
+        $('.service-card').removeClass('service-card--selected');
+        
+        // Select this one
+        $(this).addClass('service-card--selected');
+    });
+
+    // Testimonial slider
+    slidr.create('testimonial-slider').auto();
+});
 
 
-// Testimonial slider
-slidr.create('testimonial-slider').auto();
 // Show details on click
 $('.featured-work-card').click(function(){
     var cardClass = 'featured-work-card--detail-open';
@@ -947,20 +969,65 @@ $('.featured-work-card').click(function(){
 
     var clickedCard = this;
     var $clickedCard = $(clickedCard);
-    var $previousOpenCard = $(cardClass);
-    var $previousOpenDetail = $(detailClass);
-    // Close any other open detail panes
-    console.log($previousOpenDetail);
-    
-    $previousOpenDetail.slideUp(400, function(){
-        $previousOpenCard.removeClass(cardClass);
-        $previousOpenDetail.removeClass(detailClass);
-    });
+    var $clickedCardDetail = $('#' + clickedCard.getAttribute('data-detail-id'));
+    var $previousOpenCard = $('.' + cardClass);
+    var $previousOpenDetail = $('.' + detailClass);
 
-    // Open this detail pane
-    $clickedCard.addClass(cardClass);
-    $('#' + clickedCard.getAttribute('data-detail-id')).slideDown(400, function(){
-        $(this).addClass(detailClass);
-    });
+    // If another detail pane is open
+    if($previousOpenDetail.length > 0) {
+
+        // If the previous open detail on the same row as this one
+        if($previousOpenDetail.css('order') === $clickedCardDetail.css('order')) {
+
+            // Close the previous open detail pane
+            closePreviousOpenDetailPane({animate: false})
+            // Open this detail pane
+            openClickedDetailPane({animate: false});
+
+        // If the previous open detail on a different row as this one
+        } else {
+
+            // Close the previous open detail pane
+            closePreviousOpenDetailPane({animate: true})
+            // Open this detail pane
+            openClickedDetailPane({animate: true});
+        }
+
+    } else {
+
+        // Open this detail pane
+        openClickedDetailPane({animate: true});
+    }
+
+    function openClickedDetailPane({animate=false}) {
+        $clickedCard.addClass(cardClass);
+
+        if(animate){
+            $clickedCardDetail.slideDown(400, function(){
+                $(this).addClass(detailClass);
+            });
+        } else {
+            $clickedCardDetail.show(0, function(){
+                $(this).addClass(detailClass);
+            });
+        }
+        
+    }
+
+    function closePreviousOpenDetailPane({animate=false}) {
+
+        if(animate) {
+            $previousOpenDetail.slideUp(400, function(){
+                $previousOpenCard.removeClass(cardClass);
+                $previousOpenDetail.removeClass(detailClass);
+            });
+        } else {
+            $previousOpenDetail.hide(0, function(){
+                $previousOpenCard.removeClass(cardClass);
+                $previousOpenDetail.removeClass(detailClass);
+            });
+        }
+    }
+        
     
 })

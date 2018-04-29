@@ -9,6 +9,7 @@
     background-color: $color-gray--light;
 
     &__logo {
+        @include scroll-reveal;
         display: flex;
         align-items: center;
 
@@ -55,11 +56,13 @@
     }
 
     &__heading {
+        @include scroll-reveal;
         color: $font-color-dark;
         font-size: $font-size-heading-3;
     }
 
     &__text {
+        @include scroll-reveal;
         margin-top: 2rem;
         color: $font-color-normal;
 
@@ -73,42 +76,66 @@
     }
 
     &__video {
+        @include scroll-reveal;
         height: 100%;
     }
 }
 
 .services {
+    $block: &;
+
+    position: relative;
     padding: 4rem 0 6rem 0;
     background-color: $color-blue;
     text-align: center;
 
+    &--detail-open {
+        overflow-x: hidden;
+
+        #{$block}__card-section {
+            left: 25%;
+        }
+    }
+
     &__heading {
+        @include scroll-reveal;
         color: $font-color-light;
         font-size: $font-size-heading-3;
         font-weight: $font-weight-semi-bold;
     }
 
     &__text {
+        @include scroll-reveal;
         margin-top: 2rem;
         padding: 0 10rem;
         color: $font-color-medium;
     }
 
     &__card-section {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+        position: relative;
+        //display: flex;
+        //justify-content: center;
+        //align-items: flex-start;
+        min-height: 13rem;
         margin-top: 5rem;
     }
 }
 
 .service-card {
+    $service-card-width: 15rem;
+    $service-card-margin: 1.5rem;
+
     $block: &;
 
+    @include scroll-reveal;
     cursor: pointer;
-    width: 15rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: $service-card-width;
     padding-top: 1rem;
-    border-top: 5px solid transparent;    
+    border-top: 5px solid transparent;
+    transition: left 1s ease;    
 
     &:hover {
         border-top-color: $color-white;
@@ -124,6 +151,27 @@
         #{$block}__text {
             color: $font-color-light;
         }
+    }
+
+    &--custom-software {
+        margin-left: $service-card-width + 3 * $service-card-margin;
+    }
+
+    &--interactive-technology {
+        margin-left: $service-card-margin;
+    }
+
+    &--support {
+        margin-left: (-1 * $service-card-width) + (-1 * $service-card-margin);
+    }
+
+    &--automated-solutions {
+        margin-left: (-2 * $service-card-width) + (-3 * $service-card-margin);
+    }
+
+    &--selected {
+        left: -25%;
+        margin-left: 2rem; 
     }
 
     &__icon {
@@ -164,6 +212,14 @@
         color: $font-color-medium;
         line-height: 110%;
     }
+}
+
+.services-detail {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    right: 0;
 }
 
 .testimonials {
@@ -216,6 +272,9 @@
 
 .what-to-expect {
     padding: $gutter-size/2;
+    background-image: url('../images/bg-what-to-expect.jpg');
+    background-attachment: fixed;
+    background-size: cover;
 
     &__heading {
         color: $font-color-light;
@@ -231,6 +290,7 @@
 }
 
 .expectation {
+    @include scroll-reveal;
     width: 20%;
     margin: 0 1rem;
     color: $font-color-light;

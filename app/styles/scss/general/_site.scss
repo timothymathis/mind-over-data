@@ -27,6 +27,7 @@ a {
     color: $font-color-light;
     
     &__heading {
+        @include scroll-reveal;
         font-size: $font-size-heading-1;
         font-weight: $font-weight-light;
     }
@@ -35,23 +36,21 @@ a {
         font-weight: $font-weight-semi-bold; 
     }
 
+    &__text {
+        @include scroll-reveal;
+    }
+
     &__action-buttons {
         margin-top: 2rem;
     }
 
     &__button {
+        @include scroll-reveal;
         @include button;
         min-width: 11rem;
-        box-shadow: 0 0 0 0 $color-yellow--dark;
-        transition: box-shadow 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-
 
         & + * {
             margin-left: 2rem;
-        }
-
-        &:hover {
-            box-shadow: 0 0 0 20px rgba($color-yellow--dark, 0);
         }
     }
 }

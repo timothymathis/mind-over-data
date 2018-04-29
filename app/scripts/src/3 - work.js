@@ -5,20 +5,65 @@ $('.featured-work-card').click(function(){
 
     var clickedCard = this;
     var $clickedCard = $(clickedCard);
-    var $previousOpenCard = $(cardClass);
-    var $previousOpenDetail = $(detailClass);
-    // Close any other open detail panes
-    console.log($previousOpenDetail);
-    
-    $previousOpenDetail.slideUp(400, function(){
-        $previousOpenCard.removeClass(cardClass);
-        $previousOpenDetail.removeClass(detailClass);
-    });
+    var $clickedCardDetail = $('#' + clickedCard.getAttribute('data-detail-id'));
+    var $previousOpenCard = $('.' + cardClass);
+    var $previousOpenDetail = $('.' + detailClass);
 
-    // Open this detail pane
-    $clickedCard.addClass(cardClass);
-    $('#' + clickedCard.getAttribute('data-detail-id')).slideDown(400, function(){
-        $(this).addClass(detailClass);
-    });
+    // If another detail pane is open
+    if($previousOpenDetail.length > 0) {
+
+        // If the previous open detail on the same row as this one
+        if($previousOpenDetail.css('order') === $clickedCardDetail.css('order')) {
+
+            // Close the previous open detail pane
+            closePreviousOpenDetailPane({animate: false})
+            // Open this detail pane
+            openClickedDetailPane({animate: false});
+
+        // If the previous open detail on a different row as this one
+        } else {
+
+            // Close the previous open detail pane
+            closePreviousOpenDetailPane({animate: true})
+            // Open this detail pane
+            openClickedDetailPane({animate: true});
+        }
+
+    } else {
+
+        // Open this detail pane
+        openClickedDetailPane({animate: true});
+    }
+
+    function openClickedDetailPane({animate=false}) {
+        $clickedCard.addClass(cardClass);
+
+        if(animate){
+            $clickedCardDetail.slideDown(400, function(){
+                $(this).addClass(detailClass);
+            });
+        } else {
+            $clickedCardDetail.show(0, function(){
+                $(this).addClass(detailClass);
+            });
+        }
+        
+    }
+
+    function closePreviousOpenDetailPane({animate=false}) {
+
+        if(animate) {
+            $previousOpenDetail.slideUp(400, function(){
+                $previousOpenCard.removeClass(cardClass);
+                $previousOpenDetail.removeClass(detailClass);
+            });
+        } else {
+            $previousOpenDetail.hide(0, function(){
+                $previousOpenCard.removeClass(cardClass);
+                $previousOpenDetail.removeClass(detailClass);
+            });
+        }
+    }
+        
     
 })

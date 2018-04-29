@@ -33,7 +33,13 @@ $font-color-dark: $color-blue--dark;
 // Transition
 $transition-duration-default: .3s;
 
+// Metrics
 $gutter-size: 5rem;
+
+// Scroll reveal (the real work is done by the JS)
+@mixin scroll-reveal {
+    visibility: hidden;
+}
 
 // Effects
 @mixin text-shadow-subtle {
