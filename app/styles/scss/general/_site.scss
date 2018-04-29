@@ -47,7 +47,6 @@ a {
     &__button {
         @include scroll-reveal;
         @include button;
-        min-width: 11rem;
 
         & + * {
             margin-left: 2rem;

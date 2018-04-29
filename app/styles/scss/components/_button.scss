@@ -2,6 +2,7 @@
 
 @mixin button {
     cursor: pointer;
+    min-width: 11rem;
     padding: 1rem;
     border-radius: 2rem;
     background-color: $color-yellow--dark;

@@ -13,6 +13,9 @@ $(document).ready(function() {
     var	scrollTransitionPoint = 600;
     var	$window	= $(window);
 
+    // Trigger the scroll event to set the inital navigation appearance
+    $(window).scroll();
+
     var addedStickyClass = false;
     var removedStickyClass = true;
     $window.on("scroll", function() {

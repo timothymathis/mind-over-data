@@ -875,6 +875,9 @@ $(document).ready(function() {
     var	scrollTransitionPoint = 600;
     var	$window	= $(window);
 
+    // Trigger the scroll event to set the inital navigation appearance
+    $(window).scroll();
+
     var addedStickyClass = false;
     var removedStickyClass = true;
     $window.on("scroll", function() {
@@ -944,8 +947,12 @@ $(document).ready(function() {
         }
     }, 200);
 
+    var originalServicesHeight;
     // Services
     $('.service-card').click(function(){
+        var clickedCard = this;
+        var $clickedCard = $(clickedCard);
+        var $clickedCardDetail = $('#' + clickedCard.getAttribute('data-detail-id'));
 
         // Prepare the container
         $('.services').addClass('services--detail-open');
@@ -955,6 +962,29 @@ $(document).ready(function() {
         
         // Select this one
         $(this).addClass('service-card--selected');
+
+        // Prepare the contianer's height
+        originalServicesHeight = $('.services').height();
+        $('.services').animate({height: $clickedCardDetail.height() + 'px'});
+
+        // Show the detail pane 
+        $clickedCardDetail.addClass('services-detail--open');
+    });
+
+    $('.services-detail__close-button').click(function() {
+        
+        // Reset the card position
+        $('.service-card--selected').removeClass('service-card--selected');
+        
+        // Restore the container's height
+        $('.services').animate({height: originalServicesHeight + 'px'}, 200, function() {
+            
+            // Reset the container
+            $('.services--detail-open').removeClass('services--detail-open').css('height', '');
+        });
+
+        // Close the detail pane
+        $('.services-detail--open').removeClass('services-detail--open');
     });
 
     // Testimonial slider

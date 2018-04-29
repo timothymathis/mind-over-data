@@ -53,6 +53,10 @@
 
     &__video-section {
         width: 60%;
+
+        @include breakpoint(1520px) {
+            height: 486px;
+        }
     }
 
     &__heading {
@@ -78,24 +82,24 @@
     &__video {
         @include scroll-reveal;
         height: 100%;
+
+        @include breakpoint(1520px) {
+            width: 100%;
+            height: auto;
+        }
     }
 }
+
+$service-card-transition-duration: 1s;
 
 .services {
     $block: &;
 
     position: relative;
+    overflow: hidden;
     padding: 4rem 0 6rem 0;
     background-color: $color-blue;
     text-align: center;
-
-    &--detail-open {
-        overflow-x: hidden;
-
-        #{$block}__card-section {
-            left: 25%;
-        }
-    }
 
     &__heading {
         @include scroll-reveal;
@@ -112,10 +116,6 @@
     }
 
     &__card-section {
-        position: relative;
-        //display: flex;
-        //justify-content: center;
-        //align-items: flex-start;
         min-height: 13rem;
         margin-top: 5rem;
     }
@@ -130,14 +130,15 @@
     @include scroll-reveal;
     cursor: pointer;
     position: absolute;
-    bottom: 0;
+    z-index: 1;
+    bottom: 6rem;
     left: 50%;
     width: $service-card-width;
     padding-top: 1rem;
     border-top: 5px solid transparent;
-    transition: left 1s ease;    
+    transition: left $service-card-transition-duration ease;    
 
-    &:hover {
+    &:hover, &--selected {
         border-top-color: $color-white;
 
         #{$block}__icon {
@@ -169,10 +170,14 @@
         margin-left: (-2 * $service-card-width) + (-3 * $service-card-margin);
     }
 
-    &--selected {
-        left: -25%;
-        margin-left: 2rem; 
-    }
+    .services--detail-open & {
+        left: 100%;
+
+        &--selected {
+            left: -0;
+            margin-left: 2rem; 
+        }
+    } 
 
     &__icon {
         width: 3rem;
@@ -215,11 +220,72 @@
 }
 
 .services-detail {
+    visibility: hidden;
+    opacity: 0;
+    position: relative;
     position: absolute;
+    z-index: 2;
     top: 0;
     right: 0;
-    bottom: 0;
-    right: 0;
+    left: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 42% 100%);    
+    padding: $gutter-size/2 $gutter-size/2 $gutter-size/2 33%;
+    background-color: $color-blue--light;
+    color: $font-color-dark;
+    text-align: left;
+    transition: opacity $service-card-transition-duration ease, visibility 0s ease $service-card-transition-duration;
+
+    &--open {
+        visibility: visible;
+        opacity: 1;
+        bottom: 0;
+        transition-delay: 0s;
+    }
+
+    &__heading {
+        font-size: $font-size-heading-2;
+        font-weight: $font-weight-semi-bold;
+    }
+
+    &__text {
+        margin-top: 2rem;
+    }
+
+    &__examples-section {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+    }
+
+    &__example {
+        flex: 0 1 16rem;
+        text-align: center;
+    }
+
+    &__example-image {
+        height: 10rem;
+    }
+
+    &__example-title {
+        font-weight: $font-weight-semi-bold;
+        text-transform: uppercase;
+    }
+
+    &__call-to-action {
+        margin-top: $gutter-size/2;
+        text-align: right;
+    }
+
+    &__button {
+        @include button;
+    }
+
+    &__close-button {
+        cursor: pointer;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
 }
 
 .testimonials {
