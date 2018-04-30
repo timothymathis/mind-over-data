@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Parallax
-    //$('.what-to-expect').parallax({imageSrc: './images/bg-what-to-expect.jpg'});
+    $('.site__header--home').parallax({imageSrc: './images/bg-header-home.jpg'});
 
     // Fade in on scroll
     sr.reveal('.hero__heading', { duration: revealDuration });

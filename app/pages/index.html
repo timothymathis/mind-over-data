@@ -17,11 +17,13 @@
 
             <!-- Hero -->
             <section class="hero">
-                <h1 class="hero__heading">Your Business Problems <span class="hero__heading-emphasis">Solved</span></h1>
-                <p class="hero__text">We work with you to develop custom software and technology tailored to your specific needs. Contact us and lets get started today!</p>
-                <div class="hero__action-buttons">
-                    <button class="hero__button">Learn More</button>
-                    <button class="hero__button">Schedule a Call</button>
+                <div class="hero__content">
+                    <h1 class="hero__heading">Your Business Problems <span class="hero__heading-emphasis">Solved</span></h1>
+                    <p class="hero__text">We work with you to develop custom software and technology tailored to your specific needs. Contact us and lets get started today!</p>
+                    <div class="hero__action-buttons">
+                        <button class="hero__button">Learn More</button>
+                        <button class="hero__button">Schedule a Call</button>
+                    </div>
                 </div>
             </section>
         </header>
@@ -231,7 +233,7 @@
             </section>
 
             <!-- Featured Work -->
-            @@include('./partials/work.html')
+            @@include('./partials/work-partial.html', {"showAll": false})
 
             <!-- Testimonials -->
             <section class="testimonials">

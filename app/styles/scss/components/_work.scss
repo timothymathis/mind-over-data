@@ -102,6 +102,22 @@
     &--grammy-museum {
         order: 9;
     }
+    
+    &--cancer-kindness {
+        order: 11;
+    }
+    
+    &--hilton-garden-inn {
+        order: 12;
+    }
+    
+    &--wright-medical {
+        order: 13;
+    }
+    
+    &--ars-inc {
+        order: 14;
+    }
 
     &__container {
         position: relative;
@@ -157,6 +173,22 @@
         
         #{$block}--grammy-museum & {
             background-image: url('../images/work-grammy-museum.png');
+        }
+        
+        #{$block}--cancer-kindness & {
+            background-image: url('../images/work-fedex.png');
+        }
+        
+        #{$block}--hilton-garden-inn & {
+            background-image: url('../images/work-fedex.png');
+        }
+        
+        #{$block}--wright-medical & {
+            background-image: url('../images/work-fedex.png');
+        }
+        
+        #{$block}--ars-inc & {
+            background-image: url('../images/work-fedex.png');
         }
     }
 
@@ -226,6 +258,22 @@
     
     &--grammy-museum {
         order: 10;
+    }
+    
+    &--cancer-kindness {
+        order: 15;
+    }
+    
+    &--hilton-garden-inn {
+        order: 15;
+    }
+    
+    &--wright-medical {
+        order: 15;
+    }
+    
+    &--ars-inc {
+        order: 15;
     }
 
     &__text-section {

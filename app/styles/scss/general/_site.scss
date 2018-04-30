@@ -2,7 +2,14 @@
 @import '../components/button';
 
 a {
+    color: $font-color-normal;
+    font-size: 1rem;
+    text-decoration: none;
     transition: all $transition-duration-default ease;
+
+    &:hover {
+        color: $font-color-dark;
+    }
 }
 
 .site {
@@ -21,10 +28,23 @@ a {
 
 .hero {
     @include text-shadow-subtle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50%;
+    height: 30rem;
     margin: 0 $gutter-size 0 $gutter-size;
-    padding: 12rem 0 10rem 0;
+    padding: 10rem 0 0 0;
     color: $font-color-light;
+
+    &--services {
+        width: 40%;
+        height: 50rem;
+    }
+
+    &__content {
+
+    }
     
     &__heading {
         @include scroll-reveal;
@@ -38,6 +58,14 @@ a {
 
     &__text {
         @include scroll-reveal;
+        margin-top: 1rem;
+    }
+
+    &__more {
+        text-align: right;
+    }
+
+    &__more-link {
     }
 
     &__action-buttons {

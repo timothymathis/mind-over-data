@@ -3,10 +3,6 @@ var revealDuration = 1500;
 window.sr = ScrollReveal();
 
 $(document).ready(function() {
-    // Parallax
-    $('.site__header').parallax({imageSrc: './images/bg-header-home.jpg'});
-
-
     // Sticky navigation
     var headerNavigation = $('.navigation');
     var headerLogo = $('.navigation__logo-image--scrolled');
