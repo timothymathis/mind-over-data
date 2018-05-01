@@ -257,8 +257,31 @@
     }
 }
   
+// Shorthand for @media queries
 @mixin breakpoint($size) {
     @media screen and (min-width: $size) {
         @content;
     }
+}
+
+// Scroll reveal (the real work is done by the JS)
+@mixin scroll-reveal {
+    visibility: hidden;
+}
+
+// Effects
+@mixin text-shadow-subtle {
+    text-shadow: 0 1px 5px rgba(0, 0, 0, .3)
+}
+
+// Icons
+@mixin arrow-right {
+    @include triangle($direction: right, $color: $color-blue, $size: .6rem);
+}
+
+@mixin arrow-left {
+    @include triangle($direction: left, $color: $color-blue, $size: .6rem);
+}
+
+@mixin caret-down {
 }

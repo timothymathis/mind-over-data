@@ -987,9 +987,14 @@ $(document).ready(function() {
 
 
 $(document).ready(function(){
-    // Parallax
-    $('.site__header--work').parallax({imageSrc: './images/bg-header-work.png'});
-    
+    if($('.site--work').length) {
+        // Parallax
+        $('.site__header--work').parallax({imageSrc: './images/bg-header-work.png'});
+
+        // Blog slider
+        slidr.create('blog-slider').start();
+    }
+        
     // Fade in on scroll
     sr.reveal('.featured-work-card', { 
         duration: revealDuration, 

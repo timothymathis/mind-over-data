@@ -37,24 +37,14 @@ $transition-duration-default: .3s;
 // Metrics
 $gutter-size: 5rem;
 
-// Scroll reveal (the real work is done by the JS)
-@mixin scroll-reveal {
-    visibility: hidden;
-}
-
-// Effects
-@mixin text-shadow-subtle {
-    text-shadow: 0 1px 5px rgba(0, 0, 0, .3)
-}
-
-// Icons
-@mixin arrow-right {
-    @include triangle($direction: right, $color: $color-blue, $size: .6rem);
-}
-
-@mixin arrow-left {
-    @include triangle($direction: left, $color: $color-blue, $size: .6rem);
-}
-
-@mixin caret-down {
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
 }
