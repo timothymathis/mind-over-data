@@ -246,6 +246,16 @@
     }
   }
 
+@mixin close-button {
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+
+    &:before {
+        content: 'X';
+    }
+}
   
 @mixin breakpoint($size) {
     @media screen and (min-width: $size) {

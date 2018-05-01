@@ -48,4 +48,9 @@ $(document).ready(function() {
             }
         }
     });
+
+    // Fade in on scroll
+    sr.reveal('.hero__heading', { duration: revealDuration });
+    sr.reveal('.hero__text', { duration: revealDuration });
+    sr.reveal('.hero__button', { duration: revealDuration });
 });

@@ -910,81 +910,79 @@ $(document).ready(function() {
             }
         }
     });
-});
-
-$(document).ready(function() {
-    // Parallax
-    $('.site__header--home').parallax({imageSrc: './images/bg-header-home.jpg'});
 
     // Fade in on scroll
     sr.reveal('.hero__heading', { duration: revealDuration });
     sr.reveal('.hero__text', { duration: revealDuration });
     sr.reveal('.hero__button', { duration: revealDuration });
-    sr.reveal('.clients__logo', { duration: revealDuration });
-    sr.reveal('.smart-people-video__heading', { duration: revealDuration });
-    sr.reveal('.smart-people-video__text', { duration: revealDuration });
-    sr.reveal('.smart-people-video__video', { duration: revealDuration });
-    sr.reveal('.services__heading', { duration: revealDuration });
-    sr.reveal('.services__text', { duration: revealDuration });
-    sr.reveal('.service-card', { duration: revealDuration });
-    sr.reveal('.featured-work-card', { 
-        duration: revealDuration, 
-        afterReveal: function (domEl) {
-            // Remove transform property added by ScrollReveal
-            $(domEl).css('transform','');
-        }
-    }, 50);
-    sr.reveal('.expectation', { 
-        duration: revealDuration,
-        beforeReveal: function(domEl) {
-        },
-        afterReveal: function (domEl) {
-            $(window).trigger('resize').trigger('scroll');
-        }
-    }, 200);
+});
 
-    var originalServicesHeight;
-    // Services
-    $('.service-card').click(function(){
-        var clickedCard = this;
-        var $clickedCard = $(clickedCard);
-        var $clickedCardDetail = $('#' + clickedCard.getAttribute('data-detail-id'));
+$(document).ready(function() {
+    if($('.site--home').length) {
 
-        // Prepare the container
-        $('.services').addClass('services--detail-open');
-
-        // Unselect the previously selected one
-        $('.service-card').removeClass('service-card--selected');
-        
-        // Select this one
-        $(this).addClass('service-card--selected');
-
-        // Prepare the contianer's height
-        originalServicesHeight = $('.services').height();
-        $('.services').animate({height: $clickedCardDetail.height() + 'px'});
-
-        // Show the detail pane 
-        $clickedCardDetail.addClass('services-detail--open');
-    });
-
-    $('.services-detail__close-button').click(function() {
-        
-        // Reset the card position
-        $('.service-card--selected').removeClass('service-card--selected');
-        
-        // Restore the container's height
-        $('.services').animate({height: originalServicesHeight + 'px'}, 200, function() {
+        // Parallax
+        $('.site__header--home').parallax({imageSrc: './images/bg-header-home.jpg'});
+    
+        // Fade in on scroll
+        sr.reveal('.clients__logo', { duration: revealDuration });
+        sr.reveal('.smart-people-video__heading', { duration: revealDuration });
+        sr.reveal('.smart-people-video__text', { duration: revealDuration });
+        sr.reveal('.smart-people-video__video', { duration: revealDuration });
+        sr.reveal('.services__heading', { duration: revealDuration });
+        sr.reveal('.services__text', { duration: revealDuration });
+        sr.reveal('.service-card', { duration: revealDuration });
+        sr.reveal('.expectation', { 
+            duration: revealDuration,
+            beforeReveal: function(domEl) {
+            },
+            afterReveal: function (domEl) {
+                $(window).trigger('resize').trigger('scroll');
+            }
+        }, 200);
+    
+        // Services
+        var originalServicesHeight;
+        $('.service-card').click(function(){
+            var clickedCard = this;
+            var $clickedCard = $(clickedCard);
+            var $clickedCardDetail = $('#' + clickedCard.getAttribute('data-detail-id'));
+    
+            // Prepare the container
+            $('.services').addClass('services--detail-open');
+    
+            // Unselect the previously selected one
+            $('.service-card').removeClass('service-card--selected');
             
-            // Reset the container
-            $('.services--detail-open').removeClass('services--detail-open').css('height', '');
+            // Select this one
+            $(this).addClass('service-card--selected');
+    
+            // Prepare the contianer's height
+            originalServicesHeight = $('.services').height();
+            $('.services').animate({height: $clickedCardDetail.height() + 'px'});
+    
+            // Show the detail pane 
+            $clickedCardDetail.addClass('services-detail--open');
         });
-
-        // Close the detail pane
-        $('.services-detail--open').removeClass('services-detail--open');
-    });
-
-    // Testimonial slider
-    slidr.create('testimonial-slider').auto();
+    
+        $('.services-detail__close-button').click(function() {
+            
+            // Reset the card position
+            $('.service-card--selected').removeClass('service-card--selected');
+            
+            // Restore the container's height
+            $('.services').animate({height: originalServicesHeight + 'px'}, 200, function() {
+                
+                // Reset the container
+                $('.services--detail-open').removeClass('services--detail-open').css('height', '');
+            });
+    
+            // Close the detail pane
+            $('.services-detail--open').removeClass('services-detail--open');
+        });
+    
+        // Testimonial slider
+        slidr.create('testimonial-slider').auto();
+    }
 });
 
 
@@ -992,6 +990,15 @@ $(document).ready(function(){
     // Parallax
     $('.site__header--work').parallax({imageSrc: './images/bg-header-work.png'});
     
+    // Fade in on scroll
+    sr.reveal('.featured-work-card', { 
+        duration: revealDuration, 
+        afterReveal: function (domEl) {
+            // Remove transform property added by ScrollReveal
+            $(domEl).css('transform','');
+        }
+    }, 50);
+
     // Show details on click
     $('.featured-work-card').click(function(){
         var cardClass = 'featured-work-card--detail-open';
@@ -1066,6 +1073,52 @@ $(document).ready(function(){
 $(document).ready(function() {
     // Parallax
     $('.site__header--services').parallax({imageSrc: './images/bg-header-services.png'});
+
+    // Set the height of the service panels section to the height of the panels
+    var $servicePanels = $('.service-panels');
+    var originalServicesHeight = $servicePanels.height();
+    $servicePanels.css('height', originalServicesHeight + 'px');
+    $servicePanels.removeClass('service-panels--preload');
+    $('.service-panels__panel--preload').removeClass('service-panels__panel--preload');
+
+
+    $('.service-panels__panel').click(function(){
+        var clickedPanel = this;
+        var $clickedPanel = $(clickedPanel);
+        var $clickedPanelDetail = $('#' + clickedPanel.getAttribute('data-detail-id'));
+
+        // Prepare the container
+        $servicePanels.addClass('services-panels--detail-open');
+
+        // Unselect the previously selected one
+        $('.services-panels__panel').removeClass('services-panels__panel--selected');
+        
+        // Select this one
+        $(this).addClass('services-panels__panel--selected');
+
+        // Prepare the container's height
+        originalServicesHeight = $servicePanels.height();
+        $servicePanels.animate({height: $clickedPanelDetail.height() + 'px'});
+
+        // Show the detail pane 
+        $clickedPanelDetail.addClass('service-panel-detail--open');
+    });
+
+    $('.service-panel-detail__close-button').click(function() {
+        
+        // Reset the card position
+        $('.services-panels__panel--selected').removeClass('services-panels__panel--selected');
+        
+        // Restore the container's height
+        $servicePanels.animate({height: originalServicesHeight + 'px'}, 200, function() {
+            
+            // Reset the container
+            $('.service-panels--detail-open').removeClass('service-panels--detail-open').css('height', '');
+        });
+
+        // Close the detail pane
+        $('.service-panel-detail--open').removeClass('service-panel-detail--open');
+    });
 });
 $(document).ready(function(){
     // Parallax
@@ -1074,4 +1127,5 @@ $(document).ready(function(){
 $(document).ready(function() {
     // Parallax
     $('.site__header--contact').parallax({imageSrc: './images/bg-header-contact.png'});
+    $('.contact').parallax({imageSrc: './images/bg-contact.png'});
 });

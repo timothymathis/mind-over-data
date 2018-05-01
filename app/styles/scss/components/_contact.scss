@@ -1,0 +1,56 @@
+.contact {
+    padding: 1rem $gutter-size/2;
+    color: $font-color-light;
+
+    &__heading {
+        
+        font-size: $font-size-heading-2;
+        font-weight: $font-weight-thin;
+        text-transform: uppercase;
+    }
+
+    &__emphasis {
+        font-weight: $font-weight-regular;
+    }
+
+    &__text {
+        margin-top: 2rem;
+    }
+
+    &__form {
+        padding: 0 $gutter-size/2 1rem  $gutter-size/2;
+    }
+
+    &__line {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+
+        &--submit {
+            justify-content: center;
+        }
+    }
+
+    &__field {
+        flex: 1 1 auto;
+    }
+
+    &__input, &__select {
+        width: 90%;
+        margin: 0 1rem;
+        padding: 1rem 1rem .5rem 1rem;
+        background-color: $color-blue--extra-dark;
+        outline: none;
+        border: none;
+        color: $font-color-light;
+        font-size: .8rem;
+
+        &::placeholder {
+            color: $font-color-medium;
+        }
+    }
+
+    &__submit {
+        @include button;
+    }
+}

@@ -1,0 +1,143 @@
+.service-panels {
+    $block: &;
+
+    position: relative;
+    //min-height: 36rem;
+    background-color: $color-blue--extra-dark;
+    color: $font-color-medium;
+    font-weight: $font-weight-semi-bold;
+
+    &--preload {
+        display: flex;
+    }
+
+    &__panel {
+        $service-panel-transition-duration: 1s;
+
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 25%;
+        box-sizing: border-box;
+        padding: 3rem $gutter-size/2;
+        background-size: cover;
+        transition: left $service-panel-transition-duration ease;    
+
+        &:hover, &--selected {
+            color: $font-color-light;
+
+            #{$block}__panel-heading {
+                border-top-color: $color-white;
+            }
+        }
+
+        &--preload {
+            position: relative;
+        }
+
+        &--custom-development {
+            left: 0;
+            background-image: url('../images/services-custom-development.png');
+        }
+
+        &--interactive-kiosks {
+            left: 25%;
+            background-image: url('../images/services-interactive-kiosks.png');
+        }
+
+        &--maintenance-and-support {
+            left: 50%;
+            background-image: url('../images/services-maintenance-and-support.png');
+        }
+
+        &--process-automation {
+            left: 75%;
+            background-image: url('../images/services-process-automation.png');
+        }
+
+        #{$block}--detail-open & {
+            left: 100%;
+    
+            &--selected {
+                left: 0;
+                margin-left: 2rem; 
+            }
+        } 
+
+    }
+
+    &__panel-heading {
+        padding: 3rem 0;
+        border-top: 5px solid transparent;
+        font-size: $font-size-heading-2;
+        line-height: 2rem;
+        text-transform: uppercase;
+    }
+
+    &__panel-text {
+        margin-bottom: 2rem;
+    }
+
+}
+
+.service-panel-detail {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 25%;
+    box-sizing: border-box;
+    width: 75%;
+    padding: 2rem;
+    background-color: $color-white;
+    color: $font-color-normal;
+
+    &--open {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__heading {
+        font-size: $font-size-heading-3;
+        color: $font-color-dark;
+    }
+
+    &__text {
+        margin-top: 1rem;
+    }
+
+    &__list {
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+    
+    &__list-item {
+        padding-left: 1rem; 
+    }
+
+    &__examples-section {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 3rem;
+    }
+
+    &__example {
+        flex: 0 1 18rem;
+    }
+
+    &__example-image {
+        height: 10rem;
+    }
+
+    &__example-title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &__close-button {
+        @include close-button;
+    }
+}

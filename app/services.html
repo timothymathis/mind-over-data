@@ -9,7 +9,7 @@
 
         <link rel="stylesheet" href="styles/styles.css">
     </head>
-    <body class="site">
+    <body class="site site--services">
 
         <header class="site__header site__header--services">
             <!-- Navigation -->
@@ -61,36 +61,37 @@
         <main class="site__main">
 
             <!-- Services -->
-            <section class="service-panels">
-                <div class="service-panels__panel">
+            <section class="service-panels service-panels--preload">
+                <div class="service-panels__panel service-panels__panel--preload service-panels__panel--custom-development" data-detail-id="custom-development">
                     <h2 class="service-panels__panel-heading">Custom Development</h2>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                 </div>
-                <div class="service-panels__panel">
+                <div class="service-panels__panel service-panels__panel--preload service-panels__panel--interactive-kiosks" data-detail-id="interactive-kiosks">
                     <h2 class="service-panels__panel-heading">Interactive Kiosks</h2>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                 </div>
-                <div class="service-panels__panel">
+                <div class="service-panels__panel service-panels__panel--preload service-panels__panel--maintenance-and-support" data-detail-id="maintenance-and-support">
                     <h2 class="service-panels__panel-heading">Maintenance & Support</h2>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                 </div>
-                <div class="service-panels__panel">
+                <div class="service-panels__panel service-panels__panel--preload service-panels__panel--process-automation" data-detail-id="process-automation">
                     <h2 class="service-panels__panel-heading">Process Automation</h2>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                     <p class="service-panels__panel-text">Lorem Ipsum</p>
                 </div>
-                <div class="service-panel-detail">
+                
+                <div class="service-panel-detail" id="custom-development">
                    <h2 class="service-panel-detail__heading">Engage and inform your customers with interactive kiosks</h2>
 
                    <p class="service-panel-detail__text">
@@ -111,8 +112,7 @@
                            <li class="service-panel-detail__list-item">Mobile or free-standing</li>
                            <li class="service-panel-detail__list-item">Scalable in size, from life size to handheld </li>
                            <li class="service-panel-detail__list-item">Robust and sturdy for use in areas of heavy foot traffic</li>
-                           <li class="service-panel-detail__list-item">Perfect for lobbies, waiting rooms, transitional spaces, recreation areas, places of learning, landmarks and historical sites, museums, libraries, transportation 
-                            centers, restaurants, health care facilities and more</li>
+                           <li class="service-panel-detail__list-item">Perfect for lobbies, waiting rooms, transitional spaces, recreation areas, places of learning, landmarks and historical sites, museums, libraries, transportation centers, restaurants, health care facilities and more</li>
                        </ul>
                    </p>     
                         
@@ -135,14 +135,155 @@
                         </div>
                     </div>
 
-                    <div class="service-panel-detail__close-button">X</div>
+                    <div class="service-panel-detail__close-button"></div>
+                </div>
+                
+                <div class="service-panel-detail" id="interactive-kiosks">
+                   <h2 class="service-panel-detail__heading">Engage and inform your customers with interactive kiosks</h2>
+
+                   <p class="service-panel-detail__text">
+                       We can help you design a better way to get information directly into the hands of your customers. Interactive kiosks can entertain, educate, engage customers, 
+                        and allow for exploration of large amounts of information. The systems we build follow a thoroughly thought out process that allows for easy updating of content 
+                        and can be used as a foundation for more content to be added over the years. 
+                   </p>
+
+                   <p class="service-panel-detail__text">
+                       There are a number of unique opportunities to make information more accessible — literally at the fingertips of your clients, customers, visitors, and guests — using
+                        interactive kiosk technology. When it comes to custom kiosk development, the sky’s the limit in what we can dream up together. Innovative and effective uses for 
+                        interactive kiosks include: 
+                   </p>
+                        
+                    <ul class="service-panel-detail__list">
+                        <li class="service-panel-detail__list-item">Outdoor or indoor usage</li>
+                        <li class="service-panel-detail__list-item">Mobile or free-standing</li>
+                        <li class="service-panel-detail__list-item">Scalable in size, from life size to handheld </li>
+                        <li class="service-panel-detail__list-item">Robust and sturdy for use in areas of heavy foot traffic</li>
+                        <li class="service-panel-detail__list-item">Perfect for lobbies, waiting rooms, transitional spaces, recreation areas, places of learning, landmarks and historical sites, museums, libraries, transportation 
+                        centers, restaurants, health care facilities and more</li>
+                    </ul>     
+                        
+                   <p class="service-panel-detail__text">
+                       Consider how an interactive kiosk could become a force multiplier in your customer engagement or communications strategy. Truly, if you can dream it, we can build it. 
+                   </p>     
+                        
+                   <div class="service-panel-detail__examples-section">
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-first-tennessee.png" class="service-panel-detail__example-image" alt="First Tennessee interactive kiosk">
+                            <p class="service-panel-detail__example-title">First Tennessee</p>
+                        </div>
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-kent-state-university.png" class="service-panel-detail__example-image" alt="Kent State University interactive kiosk">
+                            <p class="service-panel-detail__example-title">Kent State</p>
+                        </div>
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-blues-hall-of-fame.png" class="service-panel-detail__example-image" alt="Blues Hall of Fame interactive kiosk">
+                            <p class="service-panel-detail__example-title">Blues Hall of Fame</p>
+                        </div>
+                    </div>
+
+                    <div class="service-panel-detail__close-button"></div>
+                </div>
+                
+                <div class="service-panel-detail" id="maintenance-and-support">
+                   <h2 class="service-panel-detail__heading">Engage and inform your customers with interactive kiosks</h2>
+
+                   <p class="service-panel-detail__text">
+                       We can help you design a better way to get information directly into the hands of your customers. Interactive kiosks can entertain, educate, engage customers, 
+                        and allow for exploration of large amounts of information. The systems we build follow a thoroughly thought out process that allows for easy updating of content 
+                        and can be used as a foundation for more content to be added over the years. 
+                   </p>
+
+                   <p class="service-panel-detail__text">
+                       There are a number of unique opportunities to make information more accessible — literally at the fingertips of your clients, customers, visitors, and guests — using
+                        interactive kiosk technology. When it comes to custom kiosk development, the sky’s the limit in what we can dream up together. Innovative and effective uses for 
+                        interactive kiosks include: 
+                   </p>
+                        
+                    <ul class="service-panel-detail__list">
+                        <li class="service-panel-detail__list-item">Outdoor or indoor usage</li>
+                        <li class="service-panel-detail__list-item">Mobile or free-standing</li>
+                        <li class="service-panel-detail__list-item">Scalable in size, from life size to handheld </li>
+                        <li class="service-panel-detail__list-item">Robust and sturdy for use in areas of heavy foot traffic</li>
+                        <li class="service-panel-detail__list-item">Perfect for lobbies, waiting rooms, transitional spaces, recreation areas, places of learning, landmarks and historical sites, museums, libraries, transportation 
+                        centers, restaurants, health care facilities and more</li>
+                    </ul>     
+                        
+                   <p class="service-panel-detail__text">
+                       Consider how an interactive kiosk could become a force multiplier in your customer engagement or communications strategy. Truly, if you can dream it, we can build it. 
+                   </p>     
+                        
+                   <div class="service-panel-detail__examples-section">
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-first-tennessee.png" class="service-panel-detail__example-image" alt="First Tennessee interactive kiosk">
+                            <p class="service-panel-detail__example-title">First Tennessee</p>
+                        </div>
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-kent-state-university.png" class="service-panel-detail__example-image" alt="Kent State University interactive kiosk">
+                            <p class="service-panel-detail__example-title">Kent State</p>
+                        </div>
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-blues-hall-of-fame.png" class="service-panel-detail__example-image" alt="Blues Hall of Fame interactive kiosk">
+                            <p class="service-panel-detail__example-title">Blues Hall of Fame</p>
+                        </div>
+                    </div>
+
+                    <div class="service-panel-detail__close-button"></div>
+                </div>
+                
+                <div class="service-panel-detail" id="process-automation">
+                   <h2 class="service-panel-detail__heading">Engage and inform your customers with interactive kiosks</h2>
+
+                   <p class="service-panel-detail__text">
+                       We can help you design a better way to get information directly into the hands of your customers. Interactive kiosks can entertain, educate, engage customers, 
+                        and allow for exploration of large amounts of information. The systems we build follow a thoroughly thought out process that allows for easy updating of content 
+                        and can be used as a foundation for more content to be added over the years. 
+                   </p>
+
+                   <p class="service-panel-detail__text">
+                       There are a number of unique opportunities to make information more accessible — literally at the fingertips of your clients, customers, visitors, and guests — using
+                        interactive kiosk technology. When it comes to custom kiosk development, the sky’s the limit in what we can dream up together. Innovative and effective uses for 
+                        interactive kiosks include: 
+                   </p>
+                        
+                    <ul class="service-panel-detail__list">
+                        <li class="service-panel-detail__list-item">Outdoor or indoor usage</li>
+                        <li class="service-panel-detail__list-item">Mobile or free-standing</li>
+                        <li class="service-panel-detail__list-item">Scalable in size, from life size to handheld </li>
+                        <li class="service-panel-detail__list-item">Robust and sturdy for use in areas of heavy foot traffic</li>
+                        <li class="service-panel-detail__list-item">Perfect for lobbies, waiting rooms, transitional spaces, recreation areas, places of learning, landmarks and historical sites, museums, libraries, transportation 
+                        centers, restaurants, health care facilities and more</li>
+                    </ul>     
+                        
+                   <p class="service-panel-detail__text">
+                       Consider how an interactive kiosk could become a force multiplier in your customer engagement or communications strategy. Truly, if you can dream it, we can build it. 
+                   </p>     
+                        
+                   <div class="service-panel-detail__examples-section">
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-first-tennessee.png" class="service-panel-detail__example-image" alt="First Tennessee interactive kiosk">
+                            <p class="service-panel-detail__example-title">First Tennessee</p>
+                        </div>
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-kent-state-university.png" class="service-panel-detail__example-image" alt="Kent State University interactive kiosk">
+                            <p class="service-panel-detail__example-title">Kent State</p>
+                        </div>
+                        <div class="service-panel-detail__example">
+                            <img src="./images/services-detail-blues-hall-of-fame.png" class="service-panel-detail__example-image" alt="Blues Hall of Fame interactive kiosk">
+                            <p class="service-panel-detail__example-title">Blues Hall of Fame</p>
+                        </div>
+                    </div>
+
+                    <div class="service-panel-detail__close-button"></div>
                 </div>
             </section>
 
             <!-- Get In Touch -->
             <section class="contact">
-        <div class="contact__heading"></div>
-        <p class="contact__text"></p>
+        <h2 class="contact__heading">Get in <span class="contact__emphasis">Touch</span></h2>
+        <p class="contact__text">
+                Are you ready to stop wasting time (and money) with off-the-shelf technology that keeps missing the mark? We couple your experience with our expertise 
+                to develop common-sense tailored solutions that get the job done. 
+        </p>
         <form class="contact__form">
             <div class="contact__line">
                 <label class="contact__label">My name is </label>
@@ -175,7 +316,7 @@
                     <input type="text" class="contact__input" placeholder="(XXX) XXX-XXXX">
                 </div>
             </div>  
-            <div class="contact__line">
+            <div class="contact__line contact__line--submit">
                 <button class="contact__submit">Submit</button>
             </div>
         </form>

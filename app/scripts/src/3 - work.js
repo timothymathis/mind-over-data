@@ -2,6 +2,15 @@ $(document).ready(function(){
     // Parallax
     $('.site__header--work').parallax({imageSrc: './images/bg-header-work.png'});
     
+    // Fade in on scroll
+    sr.reveal('.featured-work-card', { 
+        duration: revealDuration, 
+        afterReveal: function (domEl) {
+            // Remove transform property added by ScrollReveal
+            $(domEl).css('transform','');
+        }
+    }, 50);
+
     // Show details on click
     $('.featured-work-card').click(function(){
         var cardClass = 'featured-work-card--detail-open';

@@ -12,6 +12,21 @@ a {
     }
 }
 
+h1 {
+    font-size: $font-size-heading-1;
+    font-weight: $font-weight-semi-bold;
+}
+
+h2 {
+    font-size: $font-size-heading-2;
+    font-weight: $font-weight-semi-bold;
+}
+
+h3 {
+    font-size: $font-size-heading-3;
+    font-weight: $font-weight-semi-bold;
+}
+
 .site {
     font-family: 'Open Sans', sans-serif;
     font-weight: $font-weight-regular;
