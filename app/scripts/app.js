@@ -1022,26 +1022,26 @@ $(document).ready(function(){
             if($previousOpenDetail.css('order') === $clickedCardDetail.css('order')) {
 
                 // Close the previous open detail pane
-                closePreviousOpenDetailPane({animate: false})
+                closePreviousOpenDetailPane(false)
                 // Open this detail pane
-                openClickedDetailPane({animate: false});
+                openClickedDetailPane(false);
 
             // If the previous open detail on a different row as this one
             } else {
 
                 // Close the previous open detail pane
-                closePreviousOpenDetailPane({animate: true})
+                closePreviousOpenDetailPane(true)
                 // Open this detail pane
-                openClickedDetailPane({animate: true});
+                openClickedDetailPane(true);
             }
 
         } else {
 
             // Open this detail pane
-            openClickedDetailPane({animate: true});
+            openClickedDetailPane(true);
         }
 
-        function openClickedDetailPane({animate=false}) {
+        function openClickedDetailPane(animate) {
             $clickedCard.addClass(cardClass);
                 
             if(animate){
@@ -1070,9 +1070,7 @@ $(document).ready(function(){
                 });
             }
         }
-            
-        
-    })
+    });
 });
     
 $(document).ready(function() {
@@ -1092,33 +1090,41 @@ $(document).ready(function() {
         var $clickedPanel = $(clickedPanel);
         var $clickedPanelDetail = $('#' + clickedPanel.getAttribute('data-detail-id'));
 
-        // Prepare the container
-        $servicePanels.addClass('services-panels--detail-open');
-
+        
         // Unselect the previously selected one
-        $('.services-panels__panel').removeClass('services-panels__panel--selected');
+        $('.service-panels__panel').removeClass('service-panels__panel--selected');
         
         // Select this one
-        $(this).addClass('services-panels__panel--selected');
-
+        $(this).addClass('service-panels__panel--selected');
+        
+        // Prepare the container
+        $servicePanels.addClass('service-panels--detail-open');
+        
         // Prepare the container's height
-        originalServicesHeight = $servicePanels.height();
-        $servicePanels.animate({height: $clickedPanelDetail.height() + 'px'});
+        //originalServicesHeight = $servicePanels.height();
+        $servicePanels.animate({height: $clickedPanelDetail.outerHeight() + 'px'}, function() {
+            // Trigger resize and scroll to fix parallax
+            $(window).trigger('resize').trigger('scroll');
+        });
 
         // Show the detail pane 
         $clickedPanelDetail.addClass('service-panel-detail--open');
     });
 
+    // Close button
     $('.service-panel-detail__close-button').click(function() {
         
         // Reset the card position
-        $('.services-panels__panel--selected').removeClass('services-panels__panel--selected');
+        $('.service-panels__panel--selected').removeClass('service-panels__panel--selected');
         
         // Restore the container's height
         $servicePanels.animate({height: originalServicesHeight + 'px'}, 200, function() {
             
             // Reset the container
-            $('.service-panels--detail-open').removeClass('service-panels--detail-open').css('height', '');
+            $('.service-panels--detail-open').removeClass('service-panels--detail-open');
+            // Trigger resize and scroll to fix parallax
+            $(window).trigger('resize').trigger('scroll');
+
         });
 
         // Close the detail pane
@@ -1128,6 +1134,99 @@ $(document).ready(function() {
 $(document).ready(function(){
     // Parallax
     $('.site__header--about').parallax({imageSrc: './images/bg-header-about.png'});
+
+    // Show details on click
+    $('.about-card').click(function(){
+        var cardClass = 'about-card--detail-open';
+        var detailClass = 'about-card-detail--open';
+
+        var clickedCard = this;
+        var $clickedCard = $(clickedCard);
+        var $clickedCardDetail = $('#' + clickedCard.getAttribute('data-detail-id'));
+        var $previousOpenCard = $('.' + cardClass);
+        var $previousOpenDetail = $('.' + detailClass);
+        var $allCards = $('.about-card');
+
+        // Add a class to the container
+        $('.about-sections').addClass('about-sections--detail-open');
+
+        // Add a class to all the other cards
+        $allCards.addClass('about-card--not-selected');
+        $clickedCard.removeClass('about-card--not-selected');
+
+        // If another detail pane is open
+        if($previousOpenDetail.length > 0) {
+            // Close the previous open detail pane
+            closePreviousOpenDetailPane(false)
+            // Open this detail pane
+            openClickedDetailPane(false);
+        } else {
+        
+
+            // Open this detail pane
+            openClickedDetailPane(true);
+        
+        }
+
+        function openClickedDetailPane(animate) {
+            $clickedCard.addClass(cardClass);
+                
+            if(animate){
+                $clickedCardDetail.slideDown(400, function(){
+                    $(this).addClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
+                });
+            } else {
+                $clickedCardDetail.show(0, function(){
+                    $(this).addClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
+                });
+            }
+            
+        }
+
+        function closePreviousOpenDetailPane({animate=false}) {
+
+            if(animate) {
+                $previousOpenDetail.slideUp(400, function(){
+                    $previousOpenCard.removeClass(cardClass);
+                    $previousOpenDetail.removeClass(detailClass);
+                });
+            } else {
+                $previousOpenDetail.hide(0, function(){
+                    $previousOpenCard.removeClass(cardClass);
+                    $previousOpenDetail.removeClass(detailClass);
+                });
+            }
+        }
+    });
+
+    // Close button
+    $('.about-sections__close-button').click(function() {
+        
+        // Reset the card position
+        $('.about-card--detail-open').removeClass('about-card--detail-open');
+        
+        // Reset the container
+        $('.about-sections--detail-open').removeClass('about-sections--detail-open');
+
+        // Restore the other cards
+        $('.about-card').removeClass('about-card--not-selected');
+
+        // Close the detail pane
+        $('.about-card-detail--open').slideUp(600, function() {
+            
+            $(this).removeClass('about-card-detail--open');
+
+            // Trigger resize and scroll to fix parallax
+            $(window).trigger('resize').trigger('scroll');
+
+        });
+    });
 });
 $(document).ready(function() {
     // Parallax

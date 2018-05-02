@@ -34,26 +34,26 @@ $(document).ready(function(){
             if($previousOpenDetail.css('order') === $clickedCardDetail.css('order')) {
 
                 // Close the previous open detail pane
-                closePreviousOpenDetailPane({animate: false})
+                closePreviousOpenDetailPane(false)
                 // Open this detail pane
-                openClickedDetailPane({animate: false});
+                openClickedDetailPane(false);
 
             // If the previous open detail on a different row as this one
             } else {
 
                 // Close the previous open detail pane
-                closePreviousOpenDetailPane({animate: true})
+                closePreviousOpenDetailPane(true)
                 // Open this detail pane
-                openClickedDetailPane({animate: true});
+                openClickedDetailPane(true);
             }
 
         } else {
 
             // Open this detail pane
-            openClickedDetailPane({animate: true});
+            openClickedDetailPane(true);
         }
 
-        function openClickedDetailPane({animate=false}) {
+        function openClickedDetailPane(animate) {
             $clickedCard.addClass(cardClass);
                 
             if(animate){
@@ -68,7 +68,7 @@ $(document).ready(function(){
             
         }
 
-        function closePreviousOpenDetailPane({animate=false}) {
+        function closePreviousOpenDetailPane(animate) {
 
             if(animate) {
                 $previousOpenDetail.slideUp(400, function(){
@@ -82,8 +82,6 @@ $(document).ready(function(){
                 });
             }
         }
-            
-        
-    })
+    });
 });
     

@@ -1,5 +1,6 @@
 .service-panels {
     $block: &;
+    $service-panel-transition-duration: .5s;
 
     position: relative;
     //min-height: 36rem;
@@ -12,7 +13,6 @@
     }
 
     &__panel {
-        $service-panel-transition-duration: 1s;
 
         cursor: pointer;
         position: absolute;
@@ -58,10 +58,9 @@
 
         #{$block}--detail-open & {
             left: 100%;
-    
+
             &--selected {
                 left: 0;
-                margin-left: 2rem; 
             }
         } 
 
@@ -87,17 +86,19 @@
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
-    left: 25%;
+    left: 100%;
     box-sizing: border-box;
     width: 75%;
     padding: 2rem;
     background-color: $color-white;
     color: $font-color-normal;
+    transition: all .5s ease, visibility 0s ease .5s;
 
     &--open {
+        left: 25%;
         visibility: visible;
         opacity: 1;
+        transition-delay: 0s;
     }
 
     &__heading {

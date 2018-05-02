@@ -219,4 +219,4 @@ gulp.task('default', ['browserSync', 'scripts', 'styles', 'fileinclude'], functi
 });
 
 //this is our deployment task, it will set everything for deployment-ready files
-gulp.task('deploy', gulpSequence('clean', 'scaffold', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'html-deploy'));
+gulp.task('deploy', gulpSequence('clean', 'scaffold', ['scripts-deploy', 'styles-deploy', 'images-deploy'], 'fileinclude', 'html-deploy'));

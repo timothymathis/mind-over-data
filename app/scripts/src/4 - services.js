@@ -15,33 +15,41 @@ $(document).ready(function() {
         var $clickedPanel = $(clickedPanel);
         var $clickedPanelDetail = $('#' + clickedPanel.getAttribute('data-detail-id'));
 
-        // Prepare the container
-        $servicePanels.addClass('services-panels--detail-open');
-
+        
         // Unselect the previously selected one
-        $('.services-panels__panel').removeClass('services-panels__panel--selected');
+        $('.service-panels__panel').removeClass('service-panels__panel--selected');
         
         // Select this one
-        $(this).addClass('services-panels__panel--selected');
-
+        $(this).addClass('service-panels__panel--selected');
+        
+        // Prepare the container
+        $servicePanels.addClass('service-panels--detail-open');
+        
         // Prepare the container's height
-        originalServicesHeight = $servicePanels.height();
-        $servicePanels.animate({height: $clickedPanelDetail.height() + 'px'});
+        //originalServicesHeight = $servicePanels.height();
+        $servicePanels.animate({height: $clickedPanelDetail.outerHeight() + 'px'}, function() {
+            // Trigger resize and scroll to fix parallax
+            $(window).trigger('resize').trigger('scroll');
+        });
 
         // Show the detail pane 
         $clickedPanelDetail.addClass('service-panel-detail--open');
     });
 
+    // Close button
     $('.service-panel-detail__close-button').click(function() {
         
         // Reset the card position
-        $('.services-panels__panel--selected').removeClass('services-panels__panel--selected');
+        $('.service-panels__panel--selected').removeClass('service-panels__panel--selected');
         
         // Restore the container's height
         $servicePanels.animate({height: originalServicesHeight + 'px'}, 200, function() {
             
             // Reset the container
-            $('.service-panels--detail-open').removeClass('service-panels--detail-open').css('height', '');
+            $('.service-panels--detail-open').removeClass('service-panels--detail-open');
+            // Trigger resize and scroll to fix parallax
+            $(window).trigger('resize').trigger('scroll');
+
         });
 
         // Close the detail pane
