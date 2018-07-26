@@ -871,9 +871,6 @@ $(document).ready(function() {
     var	scrollTransitionPoint = 600;
     var	$window	= $(window);
 
-    // Trigger the scroll event to set the inital navigation appearance
-    $(window).scroll();
-
     var addedStickyClass = false;
     var removedStickyClass = true;
     $window.on("scroll", function() {
@@ -910,6 +907,9 @@ $(document).ready(function() {
             }
         }
     });
+
+    // Trigger the scroll event to set the inital navigation appearance
+    $(window).trigger('resize').trigger('scroll');
 
     // Fade in on scroll
     sr.reveal('.hero__heading', { duration: revealDuration });
@@ -1001,6 +1001,9 @@ $(document).ready(function(){
         afterReveal: function (domEl) {
             // Remove transform property added by ScrollReveal
             $(domEl).css('transform','');
+
+            // Trigger resize and scroll to fix parallax
+            $(window).trigger('resize').trigger('scroll');
         }
     }, 50);
 
@@ -1047,26 +1050,38 @@ $(document).ready(function(){
             if(animate){
                 $clickedCardDetail.slideDown(400, function(){
                     $(this).addClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             } else {
                 $clickedCardDetail.show(0, function(){
                     $(this).addClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             }
             
         }
 
-        function closePreviousOpenDetailPane({animate=false}) {
+        function closePreviousOpenDetailPane(animate) {
 
             if(animate) {
                 $previousOpenDetail.slideUp(400, function(){
                     $previousOpenCard.removeClass(cardClass);
                     $previousOpenDetail.removeClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             } else {
                 $previousOpenDetail.hide(0, function(){
                     $previousOpenCard.removeClass(cardClass);
                     $previousOpenDetail.removeClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             }
         }
@@ -1076,6 +1091,9 @@ $(document).ready(function(){
 $(document).ready(function() {
     // Parallax
     $('.site__header--services').parallax({imageSrc: './images/bg-header-services.png'});
+    
+    // Reveal on scroll
+    sr.reveal('.service-panels__panel');
 
     // Set the height of the service panels section to the height of the panels
     var $servicePanels = $('.service-panels');
@@ -1135,6 +1153,15 @@ $(document).ready(function(){
     // Parallax
     $('.site__header--about').parallax({imageSrc: './images/bg-header-about.png'});
 
+    // Fade in on scroll
+    sr.reveal('.about-card', { 
+        duration: revealDuration, 
+        afterReveal: function (domEl) {
+            // Remove transform property added by ScrollReveal
+            $(domEl).css('transform','');
+        }
+    }, 50);
+
     // Show details on click
     $('.about-card').click(function(){
         var cardClass = 'about-card--detail-open';
@@ -1189,17 +1216,23 @@ $(document).ready(function(){
             
         }
 
-        function closePreviousOpenDetailPane({animate=false}) {
+        function closePreviousOpenDetailPane(animate) {
 
             if(animate) {
                 $previousOpenDetail.slideUp(400, function(){
                     $previousOpenCard.removeClass(cardClass);
                     $previousOpenDetail.removeClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             } else {
                 $previousOpenDetail.hide(0, function(){
                     $previousOpenCard.removeClass(cardClass);
                     $previousOpenDetail.removeClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             }
         }

@@ -9,9 +9,6 @@ $(document).ready(function() {
     var	scrollTransitionPoint = 600;
     var	$window	= $(window);
 
-    // Trigger the scroll event to set the inital navigation appearance
-    $(window).scroll();
-
     var addedStickyClass = false;
     var removedStickyClass = true;
     $window.on("scroll", function() {
@@ -48,6 +45,9 @@ $(document).ready(function() {
             }
         }
     });
+
+    // Trigger the scroll event to set the inital navigation appearance
+    $(window).trigger('resize').trigger('scroll');
 
     // Fade in on scroll
     sr.reveal('.hero__heading', { duration: revealDuration });

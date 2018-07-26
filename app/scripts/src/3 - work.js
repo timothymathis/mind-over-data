@@ -13,6 +13,9 @@ $(document).ready(function(){
         afterReveal: function (domEl) {
             // Remove transform property added by ScrollReveal
             $(domEl).css('transform','');
+
+            // Trigger resize and scroll to fix parallax
+            $(window).trigger('resize').trigger('scroll');
         }
     }, 50);
 
@@ -59,10 +62,16 @@ $(document).ready(function(){
             if(animate){
                 $clickedCardDetail.slideDown(400, function(){
                     $(this).addClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             } else {
                 $clickedCardDetail.show(0, function(){
                     $(this).addClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             }
             
@@ -74,11 +83,17 @@ $(document).ready(function(){
                 $previousOpenDetail.slideUp(400, function(){
                     $previousOpenCard.removeClass(cardClass);
                     $previousOpenDetail.removeClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             } else {
                 $previousOpenDetail.hide(0, function(){
                     $previousOpenCard.removeClass(cardClass);
                     $previousOpenDetail.removeClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             }
         }

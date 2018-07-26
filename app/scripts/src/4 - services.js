@@ -1,6 +1,9 @@
 $(document).ready(function() {
     // Parallax
     $('.site__header--services').parallax({imageSrc: './images/bg-header-services.png'});
+    
+    // Reveal on scroll
+    sr.reveal('.service-panels__panel');
 
     // Set the height of the service panels section to the height of the panels
     var $servicePanels = $('.service-panels');

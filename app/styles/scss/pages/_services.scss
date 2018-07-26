@@ -13,7 +13,7 @@
     }
 
     &__panel {
-
+        @include scroll-reveal;
         cursor: pointer;
         position: absolute;
         top: 0;

@@ -2,6 +2,15 @@ $(document).ready(function(){
     // Parallax
     $('.site__header--about').parallax({imageSrc: './images/bg-header-about.png'});
 
+    // Fade in on scroll
+    sr.reveal('.about-card', { 
+        duration: revealDuration, 
+        afterReveal: function (domEl) {
+            // Remove transform property added by ScrollReveal
+            $(domEl).css('transform','');
+        }
+    }, 50);
+
     // Show details on click
     $('.about-card').click(function(){
         var cardClass = 'about-card--detail-open';
@@ -62,11 +71,17 @@ $(document).ready(function(){
                 $previousOpenDetail.slideUp(400, function(){
                     $previousOpenCard.removeClass(cardClass);
                     $previousOpenDetail.removeClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             } else {
                 $previousOpenDetail.hide(0, function(){
                     $previousOpenCard.removeClass(cardClass);
                     $previousOpenDetail.removeClass(detailClass);
+
+                    // Trigger resize and scroll to fix parallax
+                    $(window).trigger('resize').trigger('scroll');
                 });
             }
         }

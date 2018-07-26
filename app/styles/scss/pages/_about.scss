@@ -13,6 +13,7 @@
 }
 
 .about-card {
+    @include scroll-reveal;
     $block: &;
     $card-width: 50%;
     $card-transition: all .5s ease;
